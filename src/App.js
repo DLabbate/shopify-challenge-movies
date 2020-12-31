@@ -1,5 +1,6 @@
 import "./App.css";
 import MovieItem from "./components/MovieItem";
+import SearchBar from "./components/SearchBar";
 
 const movieList = [
   {
@@ -92,6 +93,7 @@ function App() {
       <div className="AppTitle">
         <h1>The Shoppies</h1>
       </div>
+      <SearchBar />
       <div className="searchList">
         {movieList.map((movie) => {
           return <MovieItem {...movie} key={movie.imdbID} />;

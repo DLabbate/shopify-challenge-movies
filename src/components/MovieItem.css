@@ -12,8 +12,8 @@
   height: 20%;
   width: 100%;
   font-size: 0.75rem;
-  display: flex;
-  background-color: wheat;
+
+  background-color: lightblue;
 }
 
 .movieTitle {
