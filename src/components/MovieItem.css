@@ -1,0 +1,20 @@
+.movieItemContainer {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  box-shadow: 0 5px 8px 0;
+  margin: 20px;
+}
+
+.movieInformation {
+  font-size: 0.75rem;
+  display: flex;
+}
+
+.movieTitle {
+  margin: 0;
+}
+
+.movieImage {
+  width: 100%;
+}
