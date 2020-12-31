@@ -91,22 +91,10 @@ function App() {
     <div className="App">
       <div className="AppTitle">
         <h1>The Shoppies</h1>
-        <MovieItem {...movieList[0]} />
+      </div>
+      <div className="searchList">
         {movieList.map((movie) => {
-          return (
-            <div>
-              <img
-                src={movie.Poster}
-                alt=""
-                key={movie.imdbID}
-                height="350 px"
-              />
-              <br />
-              <span>
-                {movie.Title} ({movie.Year})
-              </span>
-            </div>
-          );
+          return <MovieItem {...movie} key={movie.imdbID} />;
         })}
       </div>
     </div>

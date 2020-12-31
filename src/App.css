@@ -11,6 +11,11 @@
   font-weight: 300;
 }
 
+.searchList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
