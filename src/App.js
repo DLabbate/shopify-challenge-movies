@@ -1,4 +1,5 @@
 import "./App.css";
+import MovieItem from "./components/MovieItem";
 
 const movieList = [
   {
@@ -90,6 +91,7 @@ function App() {
     <div className="App">
       <div className="AppTitle">
         <h1>The Shoppies</h1>
+        <MovieItem {...movieList[0]} />
         {movieList.map((movie) => {
           return (
             <div>
@@ -97,7 +99,7 @@ function App() {
                 src={movie.Poster}
                 alt=""
                 key={movie.imdbID}
-                height="300 px"
+                height="350 px"
               />
               <br />
               <span>
