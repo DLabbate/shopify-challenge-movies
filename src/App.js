@@ -23,6 +23,17 @@ function App() {
     setSearchValue(newValue);
   };
 
+  const nominateMovie = (movie) => {
+    console.log("Nominating a movie!");
+    //const newNominatedList = [...nominatedList, movie]; //append the new movie to the list of nominated movies
+    //setNominatedList(newNominatedList);
+  };
+
+  //We use the imdbID as the unique index
+  const removeMovie = (imdbID) => {
+    console.log("Removing a movie from the list of nominations.");
+  };
+
   useEffect(() => {
     getMovies(searchValue);
   }, [searchValue]);
@@ -40,7 +51,14 @@ function App() {
         {searchList && searchList.length ? (
           <div className="searchList">
             {searchList.map((movie) => {
-              return <MovieItem {...movie} key={movie.imdbID} />;
+              return (
+                <MovieItem
+                  {...movie}
+                  key={movie.imdbID}
+                  buttonType="Nominate"
+                  buttonHandler={nominateMovie}
+                />
+              );
             })}
           </div>
         ) : (
@@ -52,7 +70,14 @@ function App() {
         {searchList && searchList.length ? (
           <div className="searchList">
             {searchList.map((movie) => {
-              return <MovieItem {...movie} key={movie.imdbID} />;
+              return (
+                <MovieItem
+                  {...movie}
+                  key={movie.imdbID}
+                  buttonType="Remove"
+                  buttonHandler={removeMovie}
+                />
+              );
             })}
           </div>
         ) : (
