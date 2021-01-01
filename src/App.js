@@ -25,12 +25,14 @@ function App() {
 
   const nominateMovie = (movie) => {
     console.log("Nominating a movie!");
-    //const newNominatedList = [...nominatedList, movie]; //append the new movie to the list of nominated movies
-    //setNominatedList(newNominatedList);
+    const newNominatedList = [...nominatedList, movie]; //append the new movie to the list of nominated movies
+    setNominatedList(newNominatedList);
   };
 
   //We use the imdbID as the unique index
-  const removeMovie = (imdbID) => {
+  const removeMovie = (movie) => {
+    const { imdbID } = movie;
+    console.log(imdbID);
     console.log("Removing a movie from the list of nominations.");
   };
 
@@ -67,9 +69,9 @@ function App() {
       </div>
       <div className="nominatedMovies">
         <h2 className="movieListTitle">Nominated Movies</h2>
-        {searchList && searchList.length ? (
+        {nominatedList && nominatedList.length ? (
           <div className="searchList">
-            {searchList.map((movie) => {
+            {nominatedList.map((movie) => {
               return (
                 <MovieItem
                   {...movie}
