@@ -32,8 +32,12 @@ function App() {
   //We use the imdbID as the unique index
   const removeMovie = (movie) => {
     const { imdbID } = movie;
-    console.log(imdbID);
+    const newNominatedList = nominatedList.filter(
+      (movie) => !(movie.imdbID === imdbID)
+    );
+    setNominatedList(newNominatedList);
     console.log("Removing a movie from the list of nominations.");
+    console.log(movie);
   };
 
   useEffect(() => {
