@@ -18,6 +18,9 @@ const MovieItem = ({ Poster, Title, Year }) => {
           <span> ({Year})</span>
         </h3>
       </div>
+      <div className="buttonContainer">
+        <button className="movieButton">Nominate</button>
+      </div>
     </div>
   );
 };

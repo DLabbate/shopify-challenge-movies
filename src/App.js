@@ -6,6 +6,7 @@ import SearchBar from "./components/SearchBar";
 function App() {
   const [searchList, setSearchList] = useState([]); //List of movies resulting from the search
   const [searchValue, setSearchValue] = useState(""); //Text input of the search bar. e.g "The Lord of the Rings"
+  const [nominatedList, setNominatedList] = useState([]); //List of nominated movies
 
   const getMovies = (search) => {
     if (searchValue) {
