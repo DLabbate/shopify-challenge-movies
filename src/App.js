@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./App.css";
 import MovieItem from "./components/MovieItem";
 import SearchBar from "./components/SearchBar";
@@ -88,6 +89,18 @@ const movieList = [
 ];
 
 function App() {
+  const getMovies = (search) => {
+    fetch(`http://www.omdbapi.com/?s=${search}&apikey=45ae6804&type=movie`)
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      });
+  };
+
+  useEffect(() => {
+    getMovies("The Lord of the Rings");
+  }, []);
+
   return (
     <div className="App">
       <div className="AppTitle">
