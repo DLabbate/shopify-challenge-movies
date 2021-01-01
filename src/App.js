@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import MovieItem from "./components/MovieItem";
 import SearchBar from "./components/SearchBar";
+import { containsMovie } from "./api/APIUtils.js";
 
 function App() {
   const [searchList, setSearchList] = useState([]); //List of movies resulting from the search
@@ -23,20 +24,10 @@ function App() {
     setSearchValue(newValue);
   };
 
-  const containsMovie = (movie) => {
-    let i;
-    for (i = 0; i < nominatedList.length; i++) {
-      if (nominatedList[i].imdbID === movie.imdbID) {
-        return true;
-      }
-    }
-    return false;
-  };
-
   const nominateMovie = (movie) => {
     console.log("Nominating a movie!");
     console.log(movie);
-    if (nominatedList.length < 5 && !containsMovie(movie)) {
+    if (nominatedList.length < 5 && !containsMovie(movie, nominatedList)) {
       const newNominatedList = [...nominatedList, movie]; //append the new movie to the list of nominated movies
       setNominatedList(newNominatedList);
     }
@@ -84,6 +75,7 @@ function App() {
                   key={movie.imdbID}
                   buttonType="Nominate"
                   buttonHandler={nominateMovie}
+                  nominatedList={nominatedList}
                 />
               );
             })}

@@ -33,4 +33,15 @@
   width: 85%;
   height: 30px;
   font-family: "Montserrat", sans-serif;
+  outline: none;
+  border: none;
+}
+
+.movieButton:hover {
+  background-color: cyan;
+  transition: all 0.4s;
+}
+
+.movieButton:disabled {
+  background-color: darkgray;
 }

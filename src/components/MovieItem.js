@@ -1,5 +1,6 @@
 import React from "react";
 import "./MovieItem.css";
+import { containsMovie } from "../api/APIUtils.js";
 
 const MovieItem = ({
   Title,
@@ -9,6 +10,7 @@ const MovieItem = ({
   Poster,
   buttonType,
   buttonHandler,
+  nominatedList,
 }) => {
   const getImageURL = (Poster) => {
     if (Poster === "N/A") {
@@ -34,6 +36,23 @@ const MovieItem = ({
     }
   };
 
+  const isButtonDisabled = () => {
+    const movieObject = {
+      Title: Title,
+      Year: Year,
+      imdbID: imdbID,
+      Type: Type,
+      Poster: Poster,
+    };
+    if (
+      buttonType === "Nominate" &&
+      containsMovie(movieObject, nominatedList)
+    ) {
+      return true;
+    }
+    return false;
+  };
+
   return (
     <div className="movieItemContainer">
       <img className="movieImage" src={getImageURL(Poster)} alt="" />
@@ -44,7 +63,11 @@ const MovieItem = ({
         </h3>
       </div>
       <div className="buttonContainer">
-        <button className="movieButton" onClick={nominateOrRemove}>
+        <button
+          className="movieButton"
+          onClick={nominateOrRemove}
+          disabled={isButtonDisabled()}
+        >
           {buttonType}
         </button>
       </div>
