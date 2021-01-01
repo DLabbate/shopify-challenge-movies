@@ -9,9 +9,10 @@
 }
 
 .movieInformation {
-  height: 20%;
-  width: 100%;
+  height: 15%;
+  max-width: 250px;
   font-size: 0.75rem;
+  padding: 7.5px;
 
   background-color: lightblue;
 }
@@ -22,6 +23,6 @@
 
 .movieImage {
   width: 250px;
-  height: 375px;
+  height: 85%;
   object-fit: cover;
 }
