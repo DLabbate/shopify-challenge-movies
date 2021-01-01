@@ -59,6 +59,14 @@ function App() {
 
   return (
     <div className="App">
+      {nominatedList.length === 5 ? (
+        <div className="bannerContainer">
+          <p className="banner">5 Nominations Selected! 🏆</p>
+        </div>
+      ) : (
+        <></>
+      )}
+
       <div className="AppTitle">
         <h1>The Shoppies</h1>
       </div>
@@ -85,7 +93,9 @@ function App() {
         )}
       </div>
       <div className="nominatedMovies">
-        <h2 className="movieListTitle">Nominated Movies</h2>
+        <h2 className="movieListTitle">
+          Nominated Movies ({nominatedList.length}/5)
+        </h2>
         {nominatedList && nominatedList.length ? (
           <div className="searchList">
             {nominatedList.map((movie) => {

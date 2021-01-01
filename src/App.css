@@ -22,6 +22,19 @@
   margin: 20px 0px 0px 20px;
 }
 
+.bannerContainer {
+  background-color: lightblue;
+  height: 40px;
+
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+}
+
+.banner {
+  margin: auto 0px auto 0px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
