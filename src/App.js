@@ -31,16 +31,33 @@ function App() {
       <div className="AppTitle">
         <h1>The Shoppies</h1>
       </div>
-      <SearchBar handleChange={updateSearchValue} />
-      {searchList && searchList.length ? (
-        <div className="searchList">
-          {searchList.map((movie) => {
-            return <MovieItem {...movie} key={movie.imdbID} />;
-          })}
-        </div>
-      ) : (
-        <></>
-      )}
+      <div>
+        <SearchBar handleChange={updateSearchValue} />
+      </div>
+      <div className="searchedMovies">
+        <h2 className="movieListTitle">Search Results</h2>
+        {searchList && searchList.length ? (
+          <div className="searchList">
+            {searchList.map((movie) => {
+              return <MovieItem {...movie} key={movie.imdbID} />;
+            })}
+          </div>
+        ) : (
+          <></>
+        )}
+      </div>
+      <div className="nominatedMovies">
+        <h2 className="movieListTitle">Nominated Movies</h2>
+        {searchList && searchList.length ? (
+          <div className="searchList">
+            {searchList.map((movie) => {
+              return <MovieItem {...movie} key={movie.imdbID} />;
+            })}
+          </div>
+        ) : (
+          <></>
+        )}
+      </div>
     </div>
   );
 }
