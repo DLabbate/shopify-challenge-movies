@@ -8,29 +8,39 @@ function App() {
   const [searchValue, setSearchValue] = useState(""); //Text input of the search bar. e.g "The Lord of the Rings"
 
   const getMovies = (search) => {
-    fetch(`http://www.omdbapi.com/?s=${search}&apikey=45ae6804&type=movie`)
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        setSearchList(result.Search);
-      });
+    if (searchValue) {
+      fetch(`http://www.omdbapi.com/?s=${search}&apikey=45ae6804&type=movie`)
+        .then((res) => res.json())
+        .then((result) => {
+          console.log(result);
+          setSearchList(result.Search);
+        });
+    }
+  };
+
+  const updateSearchValue = (newValue) => {
+    setSearchValue(newValue);
   };
 
   useEffect(() => {
-    getMovies("The Lord of the Rings");
-  }, []);
+    getMovies(searchValue);
+  }, [searchValue]);
 
   return (
     <div className="App">
       <div className="AppTitle">
         <h1>The Shoppies</h1>
       </div>
-      <SearchBar />
-      <div className="searchList">
-        {searchList.map((movie) => {
-          return <MovieItem {...movie} key={movie.imdbID} />;
-        })}
-      </div>
+      <SearchBar handleChange={updateSearchValue} />
+      {searchList && searchList.length ? (
+        <div className="searchList">
+          {searchList.map((movie) => {
+            return <MovieItem {...movie} key={movie.imdbID} />;
+          })}
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
