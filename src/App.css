@@ -21,6 +21,12 @@
   overflow-x: scroll;
 }
 
+.spaceBetweenMovies {
+  content: "";
+  width: 1px;
+  min-width: 1px;
+}
+
 .sectionTitle {
   text-align: left;
   margin: 30px 0px 0px 20px;

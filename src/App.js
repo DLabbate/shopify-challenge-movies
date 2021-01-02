@@ -92,13 +92,16 @@ function App() {
           <div className="movieList">
             {searchList.map((movie) => {
               return (
-                <MovieItem
-                  {...movie}
-                  key={movie.imdbID}
-                  buttonType="Nominate"
-                  buttonHandler={nominateMovie}
-                  nominatedList={nominatedList}
-                />
+                <>
+                  <MovieItem
+                    {...movie}
+                    key={movie.imdbID}
+                    buttonType="Nominate"
+                    buttonHandler={nominateMovie}
+                    nominatedList={nominatedList}
+                  />
+                  <div className="spaceBetweenMovies"></div>
+                </>
               );
             })}
           </div>
@@ -114,12 +117,15 @@ function App() {
           <div className="movieList">
             {nominatedList.map((movie) => {
               return (
-                <MovieItem
-                  {...movie}
-                  key={movie.imdbID}
-                  buttonType="Remove"
-                  buttonHandler={removeMovie}
-                />
+                <>
+                  <MovieItem
+                    {...movie}
+                    key={movie.imdbID}
+                    buttonType="Remove"
+                    buttonHandler={removeMovie}
+                  />
+                  <div className="spaceBetweenMovies"></div>
+                </>
               );
             })}
           </div>
