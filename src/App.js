@@ -5,9 +5,12 @@ import SearchBar from "./components/SearchBar";
 import { containsMovie } from "./api/APIUtils.js";
 
 function App() {
+  const initialNominations = JSON.parse(
+    window.localStorage.getItem("nominatedList")
+  );
   const [searchList, setSearchList] = useState([]); //List of movies resulting from the search
   const [searchValue, setSearchValue] = useState(""); //Text input of the search bar. e.g "The Lord of the Rings"
-  const [nominatedList, setNominatedList] = useState([]); //List of nominated movies
+  const [nominatedList, setNominatedList] = useState(initialNominations || []); //List of nominated movies
 
   const getMovies = (search) => {
     if (searchValue) {
@@ -47,6 +50,10 @@ function App() {
   useEffect(() => {
     getMovies(searchValue);
   }, [searchValue]);
+
+  useEffect(() => {
+    window.localStorage.setItem("nominatedList", JSON.stringify(nominatedList));
+  }, [nominatedList]);
 
   return (
     <div className="App">
