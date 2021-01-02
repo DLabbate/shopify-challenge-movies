@@ -21,10 +21,46 @@
   margin: 0;
 }
 
-.movieImage {
+.imageContainer {
+  position: relative;
   width: 220px;
-  height: 75%;
+  height: 318.75px;
+  margin: 0px;
+}
+
+.movieImage {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0px;
+  transition: all 0.4s;
+  background-color: #1f2833ce;
+}
+
+.imageContainer:hover .overlay {
+  height: 100%;
+}
+
+.imageContainer:hover .detailedInfo {
+  visibility: visible;
+}
+
+.detailedInfo {
+  color: white;
+  width: 90%;
+  max-width: 90%;
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .movieButton {
