@@ -42,21 +42,17 @@
   height: 0px;
   transition: all 0.4s;
   background-color: #1f2833ce;
+  overflow: hidden;
 }
 
 .imageContainer:hover .overlay {
   height: 100%;
 }
 
-.imageContainer:hover .detailedInfo {
-  visibility: visible;
-}
-
 .detailedInfo {
   color: white;
   width: 90%;
   max-width: 90%;
-  visibility: hidden;
   position: absolute;
   top: 50%;
   left: 50%;
