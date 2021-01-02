@@ -55,14 +55,11 @@ const MovieItem = ({
     return false;
   };
 
-  let plot = "";
   const getMovieInfo = () => {
     fetch(`http://www.omdbapi.com/?i=${imdbID}&apikey=45ae6804`)
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-        plot = result.Plot;
-        console.log(plot);
         setDetailedInfo(result);
       });
   };
@@ -70,6 +67,7 @@ const MovieItem = ({
   useEffect(() => {
     getMovieInfo();
   }, []);
+
   return (
     <div className="movieItemContainer">
       <div className="imageContainer">
