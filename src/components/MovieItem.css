@@ -9,10 +9,10 @@
 }
 
 .movieInformation {
-  height: 15%;
-  max-width: 250px;
-  font-size: 0.75rem;
-  padding: 7.5px;
+  max-height: 66.25px;
+  max-width: 100%;
+  font-size: 0.65rem;
+  padding: 5px;
 }
 
 .movieTitle {

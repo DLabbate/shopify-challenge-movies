@@ -7,7 +7,7 @@ const SearchBar = ({ handleChange }) => {
       <input
         className="input"
         type="text"
-        placeholder="Seach..."
+        placeholder="Seach for movies to nominate..."
         onChange={(event) => handleChange(event.target.value)}
       />
     </div>
