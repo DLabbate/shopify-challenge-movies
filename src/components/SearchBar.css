@@ -3,8 +3,9 @@
   width: 50%;
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
-}
-
-.searchIcon {
-  width: 40px;
+  outline: none;
+  border: 5px solid #3500d3;
+  border-radius: 10px;
+  background-color: #0c0032;
+  color: white;
 }

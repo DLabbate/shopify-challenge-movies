@@ -1,14 +1,16 @@
 .movieItemContainer {
+  background-color: #190061;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 220px;
   height: 425px;
-  box-shadow: 0 5px 8px 0;
-  margin: 20px;
+  box-shadow: 0 10px 16px 0 #3500d3;
+  margin: 30px;
 }
 
 .movieInformation {
+  color: white;
   max-height: 66.25px;
   max-width: 100%;
   font-size: 0.65rem;
@@ -26,7 +28,8 @@
 }
 
 .movieButton {
-  background-color: lightblue;
+  background-color: #240090;
+  color: white;
   border: 1px solid;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -38,10 +41,34 @@
 }
 
 .movieButton:hover {
-  background-color: cyan;
+  background-color: #3500d3;
   transition: all 0.4s;
 }
 
 .movieButton:disabled {
-  background-color: darkgray;
+  background-color: #11004400;
+  border: 1px solid #3500d3;
+  color: #3500d3;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0c0032;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #3500d3;
+  border-radius: 10px;
+  width: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #190061;
 }

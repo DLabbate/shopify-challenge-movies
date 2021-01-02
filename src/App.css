@@ -1,14 +1,18 @@
 .App {
   text-align: center;
   font-family: "Montserrat", sans-serif;
+  background-color: #0c0032;
 }
 
 /*
 "The Shoppies" title at the top of the webpage
 */
 .AppTitle {
+  font-size: 1.5rem;
+  font-family: "Limelight", cursive;
   text-align: center;
   font-weight: 300;
+  color: white;
 }
 
 .searchList {
@@ -23,12 +27,13 @@
 }
 
 .bannerContainer {
-  background-color: lightblue;
+  background-color: #240090;
   height: 40px;
 
   display: flex;
   flex-direction: column;
   margin: 0px;
+  color: white;
 }
 
 .banner {
@@ -38,6 +43,12 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+h1,
+h2,
+h3 {
+  color: white;
 }
 
 @media (prefers-reduced-motion: no-preference) {
