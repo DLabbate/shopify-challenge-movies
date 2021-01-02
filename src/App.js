@@ -89,7 +89,7 @@ function App() {
       <div className="searchedMovies">
         <h2 className="sectionTitle">Search Results for "{searchValue}"</h2>
         {searchList && searchList.length ? (
-          <div className="searchList">
+          <div className="movieList">
             {searchList.map((movie) => {
               return (
                 <MovieItem
@@ -111,7 +111,7 @@ function App() {
           Nominated Movies ({nominatedList.length}/5)
         </h2>
         {nominatedList && nominatedList.length ? (
-          <div className="searchList">
+          <div className="movieList">
             {nominatedList.map((movie) => {
               return (
                 <MovieItem

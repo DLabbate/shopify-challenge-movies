@@ -15,7 +15,7 @@
   color: white;
 }
 
-.searchList {
+.movieList {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
@@ -29,7 +29,6 @@
 .bannerContainer {
   background-color: #45a29e;
   height: 40px;
-
   display: flex;
   flex-direction: column;
   margin: 0px;
