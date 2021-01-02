@@ -72,7 +72,7 @@ function App() {
         <SearchBar handleChange={updateSearchValue} />
       </div>
       <div className="searchedMovies">
-        <h2 className="movieListTitle">Search Results</h2>
+        <h2 className="sectionTitle">Search Results for "{searchValue}"</h2>
         {searchList && searchList.length ? (
           <div className="searchList">
             {searchList.map((movie) => {
@@ -92,7 +92,7 @@ function App() {
         )}
       </div>
       <div className="nominatedMovies">
-        <h2 className="movieListTitle">
+        <h2 className="sectionTitle">
           Nominated Movies ({nominatedList.length}/5)
         </h2>
         {nominatedList && nominatedList.length ? (
