@@ -1,3 +1,8 @@
+/**
+ * @file The purpose of this project is to search for movies using the OMDB API and "nominate" a total of 5 movies
+ * @author Domenic Labbate
+ */
+
 import { useEffect, useState } from "react";
 import "./App.css";
 import MovieItem from "./components/MovieItem";

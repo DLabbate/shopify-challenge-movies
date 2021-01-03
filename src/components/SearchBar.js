@@ -1,3 +1,8 @@
+/**
+ * @file This component is used for entering a value in a search bar to query for a movie from the OMDB API
+ * @author Domenic Labbate
+ */
+
 import React from "react";
 import "./SearchBar.css";
 
