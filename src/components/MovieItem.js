@@ -13,12 +13,16 @@ const MovieItem = ({
   imdbID,
   Type,
   Poster,
-  buttonType,
-  buttonHandler,
+  buttonType, //This can be either "Nominate" or "Remove"
+  buttonHandler, //This is a function that specifies what action the button should take
   nominatedList,
 }) => {
   const [detailedInfo, setDetailedInfo] = useState({});
 
+  /**
+   * This method checks if the given movie item has a poster, if not it will return a default image.
+   * @param {string} Poster - link to movie poster. Value will be "N/A" if it does not exist.
+   */
   const getImageURL = (Poster) => {
     if (Poster === "N/A") {
       return "https://cdn4.iconfinder.com/data/icons/basic-flat-ui-extra-set-200-item/76/ui_ux_minimalist_button_video_film_roll-512.png";
@@ -27,6 +31,10 @@ const MovieItem = ({
     }
   };
 
+  /**
+   * This method sets the buttonHandler of the MovieItem, depending on whether "Nominate" or "Remove"
+   * This is done so that the component can be reused for both the list of search results, along with the list of nominated movies
+   */
   const nominateOrRemove = () => {
     const movieObject = {
       Title: Title,
@@ -40,9 +48,15 @@ const MovieItem = ({
       buttonHandler(movieObject);
     } else if (buttonType === "Remove") {
       buttonHandler(movieObject);
+    } else {
+      console.log("Invalid buttonType for MovieItem");
     }
   };
 
+  /**
+   * This method checks if a given movie has already been nominated. If this is the case, the "Nominate" button (for this specific MovieItem) will be disabled.
+   * Note however that the "Remove" button is never disabled. We always want the user to be able to remove a movie from the nomination list.
+   */
   const isButtonDisabled = () => {
     const movieObject = {
       Title: Title,
@@ -60,6 +74,10 @@ const MovieItem = ({
     return false;
   };
 
+  /**
+   * Calls the OMDB API to retrieve detailed info (plot) of the movie.
+   * We specify [], so it will only execute once
+   */
   useEffect(() => {
     getMovieInfo(imdbID, setDetailedInfo);
   }, []);
