@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./MovieItem.css";
-import { containsMovie } from "../api/APIUtils.js";
+import { containsMovie, getMovieInfo } from "../api/APIUtils.js";
 
 const MovieItem = ({
   Title,
@@ -55,17 +55,8 @@ const MovieItem = ({
     return false;
   };
 
-  const getMovieInfo = () => {
-    fetch(`http://www.omdbapi.com/?i=${imdbID}&apikey=45ae6804`)
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        setDetailedInfo(result);
-      });
-  };
-
   useEffect(() => {
-    getMovieInfo();
+    getMovieInfo(imdbID, setDetailedInfo);
   }, []);
 
   return (

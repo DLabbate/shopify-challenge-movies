@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import MovieItem from "./components/MovieItem";
 import SearchBar from "./components/SearchBar";
-import { containsMovie } from "./api/APIUtils.js";
+import { containsMovie, getMovies } from "./api/APIUtils.js";
 
 function App() {
   const initialNominations = JSON.parse(
@@ -11,17 +11,6 @@ function App() {
   const [searchList, setSearchList] = useState([]); //List of movies resulting from the search
   const [searchValue, setSearchValue] = useState(""); //Text input of the search bar. e.g "The Lord of the Rings"
   const [nominatedList, setNominatedList] = useState(initialNominations || []); //List of nominated movies
-
-  const getMovies = (search) => {
-    if (searchValue) {
-      fetch(`http://www.omdbapi.com/?s=${search}&apikey=45ae6804&type=movie`)
-        .then((res) => res.json())
-        .then((result) => {
-          console.log(result);
-          setSearchList(result.Search);
-        });
-    }
-  };
 
   const updateSearchValue = (newValue) => {
     setSearchValue(newValue);
@@ -48,7 +37,7 @@ function App() {
   };
 
   useEffect(() => {
-    getMovies(searchValue);
+    getMovies(searchValue, setSearchList);
   }, [searchValue]);
 
   useEffect(() => {
