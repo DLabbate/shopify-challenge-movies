@@ -21,7 +21,7 @@ const containsMovie = (movie, movieList) => {
 
 /**
  * This method makes a call to the OMDB API (using a search term such as "lord of the rings")
- * It retrieves detailed information, including the movie plot, year, and so forth
+ * It retrieves an array of movies matching the search term
  * @param {string} search - the string in the search bar
  * @param {Function} action - function to be executed when the fetch has completed (e.g. setState)
  */
