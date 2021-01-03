@@ -47,21 +47,6 @@ function App() {
     console.log(movie);
   };
 
-  // const getDetailedMovieInformation = () => {
-  //   let i;
-  //   for (i = 0; i < searchValue.length; i++) {
-  //     console.log(i.imdbID);
-  //     fetch(`http://www.omdbapi.com/?i=${i.imdbID}&apikey=45ae6804`)
-  //       .then((res) => res.json())
-  //       .then((result) => {
-  //         console.log(result);
-  //         if (result) {
-  //         }
-  //         return result;
-  //       });
-  //   }
-  // };
-
   useEffect(() => {
     getMovies(searchValue);
   }, [searchValue]);
