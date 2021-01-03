@@ -21,6 +21,10 @@ function App() {
     setSearchValue(newValue);
   };
 
+  /**
+   * This method adds a movie to the list of nominated movies.
+   * @param {Object} movie - the movie object to add.
+   */
   const nominateMovie = (movie) => {
     console.log("Nominating a movie!");
     console.log(movie);
@@ -30,7 +34,11 @@ function App() {
     }
   };
 
-  //We use the imdbID as the unique index
+  /**
+   * This method removes a movie to the list of nominated movies.
+   * We use the imdbID as the unique index.
+   * @param {Object} movie - the movie object to remove.
+   */
   const removeMovie = (movie) => {
     const { imdbID } = movie;
     const newNominatedList = nominatedList.filter(
@@ -41,10 +49,17 @@ function App() {
     console.log(movie);
   };
 
+  /**
+   * Every time the "searchValue" is updated (the text in the search bar), we want to update our "searchList" state
+   * to immediately reflect movies pertaining to the new search term.
+   */
   useEffect(() => {
     getMovies(searchValue, setSearchList);
   }, [searchValue]);
 
+  /**
+   * When the list of nominated movies changes, we want to keep track of this in local storage
+   */
   useEffect(() => {
     window.localStorage.setItem("nominatedList", JSON.stringify(nominatedList));
   }, [nominatedList]);
