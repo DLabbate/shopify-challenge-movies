@@ -1,3 +1,8 @@
+/**
+ * @file This component is used for displaying a movie item, consiting of the movie poster, year and title.
+ * @author Domenic Labbate
+ */
+
 import React, { useEffect, useState } from "react";
 import "./MovieItem.css";
 import { containsMovie, getMovieInfo } from "../api/APIUtils.js";
