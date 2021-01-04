@@ -35,9 +35,10 @@ We'd like a simple to use interface that makes it easy to:
 
 ## Extra Features
 
-__Some extra features I decided to implement include the following:__
-- __Text overlay over each movie item which displays the movie plot__
-- __Nominated Movies are saved to local storage__
+Some extra features I decided to implement include the following:
+
+- Text overlay over each movie item which displays the movie plot
+- Nominated Movies are saved to local storage
 
 ## Technology Stack
 
@@ -45,3 +46,4 @@ __Some extra features I decided to implement include the following:__
 - JavaScript
 
 <img src="./src/images/react-logo.png" width="150" alt="ReactJS">
+<img src="./src/images/javascript-logo.png" width="150" alt="ReactJS">
