@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# The Shoppies
+
+<img src="./images/shopify-logo.png" width="100">
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
