@@ -32,3 +32,8 @@ We'd like a simple to use interface that makes it easy to:
 
 <img src="./src/images/my-solution.png">
 <img src="./src/images/harry-potter.gif">
+
+## Technology Stack
+
+- ReactJS
+- JavaScript
