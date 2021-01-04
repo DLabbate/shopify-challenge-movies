@@ -3,4 +3,9 @@
   width: 50%;
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
+  outline: none;
+  border: 5px solid #66fcf1;
+  border-radius: 10px;
+  background-color: #1f2833;
+  color: white;
 }

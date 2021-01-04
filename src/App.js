@@ -1,48 +1,44 @@
+/**
+ * @file The purpose of this project is to search for movies using the OMDB API and "nominate" a total of 5 movies
+ * @author Domenic Labbate
+ */
+
 import { useEffect, useState } from "react";
 import "./App.css";
 import MovieItem from "./components/MovieItem";
 import SearchBar from "./components/SearchBar";
+import { containsMovie, getMovies } from "./api/APIUtils.js";
 
 function App() {
+  const initialNominations = JSON.parse(
+    window.localStorage.getItem("nominatedList")
+  );
   const [searchList, setSearchList] = useState([]); //List of movies resulting from the search
   const [searchValue, setSearchValue] = useState(""); //Text input of the search bar. e.g "The Lord of the Rings"
-  const [nominatedList, setNominatedList] = useState([]); //List of nominated movies
-
-  const getMovies = (search) => {
-    if (searchValue) {
-      fetch(`http://www.omdbapi.com/?s=${search}&apikey=45ae6804&type=movie`)
-        .then((res) => res.json())
-        .then((result) => {
-          console.log(result);
-          setSearchList(result.Search);
-        });
-    }
-  };
+  const [nominatedList, setNominatedList] = useState(initialNominations || []); //List of nominated movies
 
   const updateSearchValue = (newValue) => {
     setSearchValue(newValue);
   };
 
-  const containsMovie = (movie) => {
-    let i;
-    for (i = 0; i < nominatedList.length; i++) {
-      if (nominatedList[i].imdbID === movie.imdbID) {
-        return true;
-      }
-    }
-    return false;
-  };
-
+  /**
+   * This method adds a movie to the list of nominated movies.
+   * @param {Object} movie - the movie object to add.
+   */
   const nominateMovie = (movie) => {
     console.log("Nominating a movie!");
     console.log(movie);
-    if (nominatedList.length < 5 && !containsMovie(movie)) {
+    if (nominatedList.length < 5 && !containsMovie(movie, nominatedList)) {
       const newNominatedList = [...nominatedList, movie]; //append the new movie to the list of nominated movies
       setNominatedList(newNominatedList);
     }
   };
 
-  //We use the imdbID as the unique index
+  /**
+   * This method removes a movie to the list of nominated movies.
+   * We use the imdbID as the unique index.
+   * @param {Object} movie - the movie object to remove.
+   */
   const removeMovie = (movie) => {
     const { imdbID } = movie;
     const newNominatedList = nominatedList.filter(
@@ -53,9 +49,20 @@ function App() {
     console.log(movie);
   };
 
+  /**
+   * Every time the "searchValue" is updated (the text in the search bar), we want to update our "searchList" state
+   * to immediately reflect movies pertaining to the new search term.
+   */
   useEffect(() => {
-    getMovies(searchValue);
+    getMovies(searchValue, setSearchList);
   }, [searchValue]);
+
+  /**
+   * When the list of nominated movies changes, we want to keep track of this in local storage
+   */
+  useEffect(() => {
+    window.localStorage.setItem("nominatedList", JSON.stringify(nominatedList));
+  }, [nominatedList]);
 
   return (
     <div className="App">
@@ -74,17 +81,21 @@ function App() {
         <SearchBar handleChange={updateSearchValue} />
       </div>
       <div className="searchedMovies">
-        <h2 className="movieListTitle">Search Results</h2>
+        <h2 className="sectionTitle">Search Results for "{searchValue}"</h2>
         {searchList && searchList.length ? (
-          <div className="searchList">
+          <div className="movieList">
             {searchList.map((movie) => {
               return (
-                <MovieItem
-                  {...movie}
-                  key={movie.imdbID}
-                  buttonType="Nominate"
-                  buttonHandler={nominateMovie}
-                />
+                <>
+                  <MovieItem
+                    {...movie}
+                    key={movie.imdbID}
+                    buttonType="Nominate"
+                    buttonHandler={nominateMovie}
+                    nominatedList={nominatedList}
+                  />
+                  <div className="spaceBetweenMovies"></div>
+                </>
               );
             })}
           </div>
@@ -93,19 +104,22 @@ function App() {
         )}
       </div>
       <div className="nominatedMovies">
-        <h2 className="movieListTitle">
+        <h2 className="sectionTitle">
           Nominated Movies ({nominatedList.length}/5)
         </h2>
         {nominatedList && nominatedList.length ? (
-          <div className="searchList">
+          <div className="movieList">
             {nominatedList.map((movie) => {
               return (
-                <MovieItem
-                  {...movie}
-                  key={movie.imdbID}
-                  buttonType="Remove"
-                  buttonHandler={removeMovie}
-                />
+                <>
+                  <MovieItem
+                    {...movie}
+                    key={movie.imdbID}
+                    buttonType="Remove"
+                    buttonHandler={removeMovie}
+                  />
+                  <div className="spaceBetweenMovies"></div>
+                </>
               );
             })}
           </div>
