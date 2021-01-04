@@ -6,7 +6,7 @@ Shopify Front-End Developer Challenge (Summer 2021)
 
 _Shopify has branched out into movie award shows and we need your help. Please build us an app to help manage our movie nominations for the upcoming Shoppies._
 
-## Project Available at: 🔗
+## Project Available at: 🔗[https://dlabbate.github.io/shopify-challenge-movies/]
 
 ## The Challenge 📽️
 
@@ -33,7 +33,15 @@ We'd like a simple to use interface that makes it easy to:
 <img src="./src/images/my-solution.png">
 <img src="./src/images/harry-potter.gif">
 
+## Extra Features
+
+\*\*Some extra features I decided to implement include the following:
+
+- Text overlay over each movie item which displays the movie plot
+- Nominated Movies are saved to local storage\*\*
+
 ## Technology Stack
 
+<img src="./src/images/react-logo.png" width="150">
 - ReactJS
 - JavaScript
