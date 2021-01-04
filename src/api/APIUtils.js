@@ -27,7 +27,7 @@ const containsMovie = (movie, movieList) => {
  */
 const getMovies = (search, action) => {
   if (search) {
-    fetch(`http://www.omdbapi.com/?s=${search}&apikey=45ae6804&type=movie`)
+    fetch(`https://www.omdbapi.com/?s=${search}&apikey=45ae6804&type=movie`)
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
@@ -43,7 +43,7 @@ const getMovies = (search, action) => {
  * @param {Function} action - function to be executed when the fetch has completed (e.g. setState)
  */
 const getMovieInfo = (imdbID, action) => {
-  fetch(`http://www.omdbapi.com/?i=${imdbID}&apikey=45ae6804`)
+  fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=45ae6804`)
     .then((res) => res.json())
     .then((result) => {
       console.log(result);
