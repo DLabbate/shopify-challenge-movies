@@ -7,14 +7,25 @@ import React, { useEffect, useState } from "react";
 import "./MovieItem.css";
 import { containsMovie, getMovieInfo } from "../api/APIUtils.js";
 
+/**
+ *
+ * @param {string} Title - the title of a movie (given by OMDB API)
+ * @param {string} Year - the release year of a movie (given by OMDB API)
+ * @param {string} imdbID - the imdb identification key (given by OMDB API)
+ * @param {string} Type - "movie". Note that we ONLY search for movies in our call to the OMDB API (no tv shows, etc.)
+ * @param {string} Poster - url to the movie poster. If it does not exist, will return "N/A" (given by OMDB API)
+ * @param {string} buttonType - This can be either "Nominate" or "Remove"
+ * @param {Function} buttonHandler - Function that specifies what action the button should take
+ * @param {Array} nominatedList - The list of movies the user has currently nominated
+ */
 const MovieItem = ({
   Title,
   Year,
   imdbID,
   Type,
   Poster,
-  buttonType, //This can be either "Nominate" or "Remove"
-  buttonHandler, //This is a function that specifies what action the button should take
+  buttonType,
+  buttonHandler,
   nominatedList,
 }) => {
   const [detailedInfo, setDetailedInfo] = useState({});
@@ -32,8 +43,8 @@ const MovieItem = ({
   };
 
   /**
-   * This method sets the buttonHandler of the MovieItem, depending on whether "Nominate" or "Remove"
-   * This is done so that the component can be reused for both the list of search results, along with the list of nominated movies
+   * This method sets the buttonHandler of the MovieItem, depending on whether "Nominate" or "Remove".
+   * This is done so that the component can be reused for both the list of search results, along with the list of nominated movies.
    */
   const nominateOrRemove = () => {
     const movieObject = {

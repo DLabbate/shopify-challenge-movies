@@ -6,6 +6,9 @@
 import React from "react";
 import "./SearchBar.css";
 
+/**
+ * @param {Function} handleChange - specifies the action to be taken when the search term has changed (e.g. call the OMDB API with the new search term).
+ */
 const SearchBar = ({ handleChange }) => {
   return (
     <div>
