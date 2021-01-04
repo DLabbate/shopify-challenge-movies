@@ -37,8 +37,8 @@ We'd like a simple to use interface that makes it easy to:
 
 Some extra features I decided to implement include the following:
 
-- Text overlay over each movie item which displays the movie plot
-- Nominated Movies are saved to local storage
+- Text overlay for each movie item which displays the movie plot
+- Nominated movies are saved to local storage
 
 ## Technology Stack
 
