@@ -31,6 +31,7 @@ We'd like a simple to use interface that makes it easy to:
 ## My Solution
 
 <img src="./src/images/my-solution.png">
+<br></br>
 <img src="./src/images/harry-potter.gif">
 
 ## Extra Features
