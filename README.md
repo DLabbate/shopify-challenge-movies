@@ -45,5 +45,4 @@ Some extra features I decided to implement include the following:
 - ReactJS
 - JavaScript
 
-<img src="./src/images/react-logo.png" width="150" alt="ReactJS">
-<img src="./src/images/javascript-logo.png" width="150" alt="ReactJS">
+<img src="./src/images/react-logo.png" width="150" alt="ReactJS"> <img src="./src/images/javascript-logo.png" width="150" alt="JavaScript">
