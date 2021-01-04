@@ -43,5 +43,6 @@ We'd like a simple to use interface that makes it easy to:
 ## Technology Stack
 
 <img src="./src/images/react-logo.png" width="150">
+
 - ReactJS
 - JavaScript
